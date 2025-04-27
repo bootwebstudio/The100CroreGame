@@ -335,7 +335,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="w-full mt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
+      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
         {/* Brand Logo */}
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-semibold">100Cr.</h2>
@@ -390,7 +390,7 @@ const App = () => {
         </div>
 
         {/* Footer Trademark */}
-        <div className="w-full pt-4 border-t-2 border-amber-50">
+        <div className="w-full pt-6 border-t-2 border-amber-50">
           <p className="text-xs text-center leading-relaxed">
             © 2025 The ₹100 Crore Game. All rights reserved.
           </p>
