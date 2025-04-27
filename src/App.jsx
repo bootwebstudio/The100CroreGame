@@ -335,9 +335,9 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
+      <footer className="w-full mt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
         {/* Brand Logo */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <h2 className="text-xl font-semibold">100Cr.</h2>
           <p className="text-sm leading-relaxed">
             Built with big dreams & bigger hustle.
