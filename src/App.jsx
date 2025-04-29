@@ -12,13 +12,15 @@ import gameFAQs from "./gameFAQs";
 import gameSubscriptions from "./gameSubscriptions";
 
 // Icons
+import { Play } from "lucide-react";
 import { Plus } from "lucide-react";
 import { Check } from "lucide-react";
 
 // Assets
-import Testimonials1 from "./assets/Testimonial1.png";
-import Testimonials2 from "./assets/Testimonial2.png";
-import Testimonials3 from "./assets/Testimonial3.png";
+import Trailer from "./assets/Trailer.png";
+import Testimonial1 from "./assets/Testimonial1.png";
+import Testimonial2 from "./assets/Testimonial2.png";
+import Testimonial3 from "./assets/Testimonial3.png";
 
 const App = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -43,7 +45,7 @@ const App = () => {
   return (
     <main className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]">
       {/* Navbar Section */}
-      <nav className="w-full p-4 px-6 md:p-6 lg:p-8 xl:p-4 xl:px-12 flex items-center justify-between relative border-b-2 border-stone-800">
+      <nav className="w-full p-4 px-6 md:p-6 lg:p-8 xl:p-4 xl:px-12 flex items-center justify-between relative border-b-2 border-stone-800 z-50">
         {/* Brand Logo */}
         <h2
           className={`text-xl font-semibold z-50 transition-colors duration-200 ${
@@ -93,8 +95,8 @@ const App = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-center">
-        <h2 className="text-lg text-center">
+      <section className="w-full pt-14 p-6 flex flex-col gap-6 items-center">
+        <h2 className="text-lg text-center leading-relaxed">
           The ₹100 Crore Game. <br /> A real—life financial challenge.
         </h2>
         <p className="text-sm text-center leading-relaxed text-stone-600">
@@ -108,10 +110,23 @@ const App = () => {
 
       {/* Trailer Section */}
       <section className="w-full pt-12 p-6 flex items-center">
-        <video
-          src=""
-          className="w-full h-[25vh] rounded-xl object-cover bg-stone-600"
-        ></video>
+        <div className="relative w-full">
+          <video
+            src=""
+            poster={Trailer}
+            className="w-full h-fit rounded-xl object-cover bg-stone-400"
+          ></video>
+
+          <button
+            className="absolute inset-0 flex items-center justify-center"
+            onClick={() => {
+              const video = document.querySelector("video");
+              video?.play();
+            }}
+          >
+            <Play className="w-14 h-14 text-white bg-black bg-opacity-50 rounded-full p-4 hover:bg-opacity-75 transition" />
+          </button>
+        </div>
       </section>
 
       {/* About Section */}
@@ -236,9 +251,9 @@ const App = () => {
           Your story could be next.
         </p>
         <div className="w-full h-full flex flex-col gap-6">
-          <img src={Testimonials1} alt="" className="rounded-xl" />
-          <img src={Testimonials2} alt="" className="rounded-xl" />
-          <img src={Testimonials3} alt="" className="rounded-xl" />
+          <img src={Testimonial1} alt="" className="rounded-xl" />
+          <img src={Testimonial2} alt="" className="rounded-xl" />
+          <img src={Testimonial3} alt="" className="rounded-xl" />
         </div>
       </section>
 
