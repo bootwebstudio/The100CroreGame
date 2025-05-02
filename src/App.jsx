@@ -70,14 +70,14 @@ const App = () => {
   return (
     <main
       ref={locomotiveRef}
-      className="w-full h-full text-stone-800 bg-white font-[Boldonse]"
+      className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]"
     >
       {/* Navbar Section */}
       <nav className="w-full p-4 px-6 md:p-6 lg:p-8 xl:p-4 xl:px-12 flex items-center justify-between relative border-b-2 border-stone-800 z-50">
         {/* Brand Logo */}
         <h2
           className={`text-xl font-semibold z-50 transition-colors duration-200 ${
-            navOpen ? "text-white" : "text-stone-800"
+            navOpen ? "text-amber-50" : "text-stone-800"
           }`}
         >
           100Cr.
@@ -87,28 +87,28 @@ const App = () => {
         <div
           onClick={() => setNavOpen(!navOpen)}
           className={`p-4 px-2.5 rounded-full flex flex-col gap-2 z-50 transition-colors duration-200 ${
-            navOpen ? "bg-white" : "bg-stone-800"
+            navOpen ? "bg-amber-50" : "bg-stone-800"
           }`}
         >
           <div
-            className={`w-6 h-[0.8px] transition-transform duration-200 ${
+            className={`w-6 h-[1px] transition-transform duration-200 ${
               navOpen
                 ? "rotate-[405deg] translate-y-1 bg-stone-800"
-                : "bg-white"
+                : "bg-amber-50"
             }`}
           ></div>
           <div
-            className={`w-6 h-[0.8px] transition-transform duration-200 ${
+            className={`w-6 h-[1px] transition-transform duration-200 ${
               navOpen
                 ? "-rotate-[405deg] -translate-y-1 bg-stone-800"
-                : "bg-white"
+                : "bg-amber-50"
             }`}
           ></div>
         </div>
 
         {/* Nav Links */}
         <div
-          className={`w-full h-screen text-lg fixed inset-0 flex flex-col gap-4 items-center justify-center text-white bg-stone-800 transition-transform duration-200 ${
+          className={`w-full h-screen text-lg fixed inset-0 flex flex-col gap-4 items-center justify-center text-amber-50 bg-stone-800 transition-transform duration-200 ${
             navOpen ? "translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -183,7 +183,7 @@ const App = () => {
           This ain't Netflix. It's your shortcut to financial freedom—play
           smart, earn fast, and win big.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800">
+        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
           Enter the Game
         </button>
       </section>
@@ -226,7 +226,7 @@ const App = () => {
           <br />
           Join thousands leveling up their income, one move at a time.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800">
+        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
           Join the Game
         </button>
       </section>
@@ -285,7 +285,7 @@ const App = () => {
           I'm playing to reach ₹100 Cr. You're playing to reach your own next
           level.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800">
+        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
           Let's Go—PLAYYY!
         </button>
       </section>
@@ -433,14 +433,14 @@ const App = () => {
           <a
             href="https://www.instagram.com/the100croregame/"
             target="_blank"
-            className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800"
+            className="p-4 px-6 text-xs text-center rounded-xl text-amber-50 bg-stone-800"
           >
             DM on Instagram
           </a>
           <a
             href="mailto:support@the100croregame.com"
             target="_blank"
-            className="p-4 px-6 text-xs rounded-xl border-2 border-stone-800 text-stone-800"
+            className="p-4 px-6 text-xs text-center rounded-xl border-2 border-stone-800 text-stone-800"
           >
             Send Email
           </a>
@@ -448,7 +448,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-white bg-stone-800">
+      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
         {/* Brand Logo */}
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-semibold">100Cr.</h2>
@@ -509,7 +509,7 @@ const App = () => {
         </div>
 
         {/* Footer Trademark */}
-        <div className="w-full pt-6 border-t-2 border-white">
+        <div className="w-full pt-6 border-t-2 border-amber-50">
           <p className="text-xs text-center leading-relaxed">
             © 2025 The ₹100 Crore Game. All rights reserved.
           </p>
