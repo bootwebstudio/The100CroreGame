@@ -1,10 +1,13 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useCallback } from "react";
 import { motion } from "framer-motion";
 import { useScroll } from "framer-motion";
 import { useSpring } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
+import LocomotiveScroll from "locomotive-scroll";
 import "remixicon/fonts/remixicon.css";
 
 // Data
@@ -23,6 +26,28 @@ import Testimonial2 from "./assets/Testimonial2.png";
 import Testimonial3 from "./assets/Testimonial3.png";
 
 const App = () => {
+  const locomotiveScroll = new LocomotiveScroll();
+
+  const locomotiveRef = useRef(null);
+
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: locomotiveRef.current,
+      smooth: true,
+    });
+
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, []);
+
+  const scrollToSection = useCallback((id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   const [navOpen, setNavOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -43,13 +68,16 @@ const App = () => {
   });
 
   return (
-    <main className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]">
+    <main
+      ref={locomotiveRef}
+      className="w-full h-full text-stone-800 bg-white font-[Boldonse]"
+    >
       {/* Navbar Section */}
       <nav className="w-full p-4 px-6 md:p-6 lg:p-8 xl:p-4 xl:px-12 flex items-center justify-between relative border-b-2 border-stone-800 z-50">
         {/* Brand Logo */}
         <h2
           className={`text-xl font-semibold z-50 transition-colors duration-200 ${
-            navOpen ? "text-amber-50" : "text-stone-800"
+            navOpen ? "text-white" : "text-stone-800"
           }`}
         >
           100Cr.
@@ -59,43 +87,95 @@ const App = () => {
         <div
           onClick={() => setNavOpen(!navOpen)}
           className={`p-4 px-2.5 rounded-full flex flex-col gap-2 z-50 transition-colors duration-200 ${
-            navOpen ? "bg-amber-50" : "bg-stone-800"
+            navOpen ? "bg-white" : "bg-stone-800"
           }`}
         >
           <div
             className={`w-6 h-[0.8px] transition-transform duration-200 ${
               navOpen
                 ? "rotate-[405deg] translate-y-1 bg-stone-800"
-                : "bg-amber-50"
+                : "bg-white"
             }`}
           ></div>
           <div
             className={`w-6 h-[0.8px] transition-transform duration-200 ${
               navOpen
                 ? "-rotate-[405deg] -translate-y-1 bg-stone-800"
-                : "bg-amber-50"
+                : "bg-white"
             }`}
           ></div>
         </div>
 
         {/* Nav Links */}
         <div
-          className={`w-full h-screen text-lg fixed inset-0 flex flex-col gap-4 items-center justify-center text-amber-50 bg-stone-800 transition-transform duration-200 ${
+          className={`w-full h-screen text-lg fixed inset-0 flex flex-col gap-4 items-center justify-center text-white bg-stone-800 transition-transform duration-200 ${
             navOpen ? "translate-y-0" : "-translate-y-full"
           }`}
         >
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Mechanism</a>
-          <a href="">Subscription</a>
-          <a href="">Testimonials</a>
-          <a href="">FAQs</a>
-          <a href="">Contact</a>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#Hero");
+            }}
+          >
+            Home
+          </span>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#About");
+            }}
+          >
+            About
+          </span>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#Mechanism");
+            }}
+          >
+            Mechanism
+          </span>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#Subscription");
+            }}
+          >
+            Subscription
+          </span>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#Testimonials");
+            }}
+          >
+            Testimonials
+          </span>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#FAQs");
+            }}
+          >
+            FAQs
+          </span>
+          <span
+            onClick={() => {
+              setNavOpen(!navOpen);
+              scrollToSection("#Contact");
+            }}
+          >
+            Contact
+          </span>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="w-full pt-14 p-6 flex flex-col gap-6 items-center">
+      <section
+        id="Hero"
+        className="w-full pt-14 p-6 flex flex-col gap-6 items-center"
+      >
         <h2 className="text-lg text-center leading-relaxed">
           The ₹100 Crore Game. <br /> A real—life financial challenge.
         </h2>
@@ -103,7 +183,7 @@ const App = () => {
           This ain't Netflix. It's your shortcut to financial freedom—play
           smart, earn fast, and win big.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
+        <button className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800">
           Enter the Game
         </button>
       </section>
@@ -130,7 +210,10 @@ const App = () => {
       </section>
 
       {/* About Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-start">
+      <section
+        id="About"
+        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+      >
         <h2 className="text-xl capitalize">About The Game</h2>
         <p className="text-sm leading-relaxed text-stone-600">
           The ₹100 Crore Game is not a course, it's a real-life challenge.
@@ -143,13 +226,16 @@ const App = () => {
           <br />
           Join thousands leveling up their income, one move at a time.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
+        <button className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800">
           Join the Game
         </button>
       </section>
 
       {/* Mechanism Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-start">
+      <section
+        id="Mechanism"
+        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+      >
         <h2 className="text-xl capitalize">How It Works?</h2>
         <p className="text-sm leading-relaxed text-stone-600">
           I'm on a 7-year mission to make ₹100 crore from scratch. No money, no
@@ -199,13 +285,16 @@ const App = () => {
           I'm playing to reach ₹100 Cr. You're playing to reach your own next
           level.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
+        <button className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800">
           Let's Go—PLAYYY!
         </button>
       </section>
 
       {/* Subscription Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-start">
+      <section
+        id="Subscription"
+        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+      >
         <h2 className="text-xl capitalize">Pick Your Path</h2>
         <p className="text-sm leading-relaxed text-stone-600">
           You can watch for free — but winners play differently.
@@ -240,7 +329,10 @@ const App = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-start">
+      <section
+        id="Testimonials"
+        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+      >
         <h2 className="text-xl leading-relaxed capitalize">
           Receipts Don't Lie
         </h2>
@@ -258,7 +350,10 @@ const App = () => {
       </section>
 
       {/* FAQs Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-start">
+      <section
+        id="FAQs"
+        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+      >
         <h2 className="text-xl leading-relaxed capitalize">Still Thinking?</h2>
         <p className="text-sm leading-relaxed text-stone-600">
           Got questions? Good. That means you're serious.
@@ -308,7 +403,10 @@ const App = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="w-full pt-12 p-6 flex flex-col gap-6 items-start">
+      <section
+        id="Contact"
+        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+      >
         <h2 className="text-xl capitalize">Questions? Hit Us Up!</h2>
         <p className="text-sm leading-relaxed text-stone-600">
           We're just one message away from helping you start your game.
@@ -335,7 +433,7 @@ const App = () => {
           <a
             href="https://www.instagram.com/the100croregame/"
             target="_blank"
-            className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800"
+            className="p-4 px-6 text-xs rounded-xl text-white bg-stone-800"
           >
             DM on Instagram
           </a>
@@ -350,7 +448,7 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
+      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-white bg-stone-800">
         {/* Brand Logo */}
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-semibold">100Cr.</h2>
@@ -364,13 +462,19 @@ const App = () => {
           <div className="w-1/2 flex flex-col gap-4">
             <h2 className="text-lg underline">Quick Links</h2>
             <div className="w-full text-sm flex flex-col gap-2">
-              <a href="">Home</a>
-              <a href="">About</a>
-              <a href="">Mechanism</a>
-              <a href="">Subscription</a>
-              <a href="">Testimonials</a>
-              <a href="">FAQs</a>
-              <a href="">Contact</a>
+              <span onClick={() => scrollToSection("#Hero")}>Home</span>
+              <span onClick={() => scrollToSection("#About")}>About</span>
+              <span onClick={() => scrollToSection("#Mechanism")}>
+                Mechanism
+              </span>
+              <span onClick={() => scrollToSection("#Subscription")}>
+                Subscription
+              </span>
+              <span onClick={() => scrollToSection("#Testimonials")}>
+                Testimonials
+              </span>
+              <span onClick={() => scrollToSection("#FAQs")}>FAQs</span>
+              <span onClick={() => scrollToSection("#Contact")}>Contact</span>
             </div>
           </div>
           <div className="w-1/2 flex flex-col gap-4">
@@ -381,7 +485,7 @@ const App = () => {
                 target="_blank"
                 className="flex gap-2 items-center"
               >
-                <i class="ri-mail-line"></i>
+                <i class="ri-mail-line text-lg"></i>
                 <span>Send an Email</span>
               </a>
               <a
@@ -389,7 +493,7 @@ const App = () => {
                 target="_blank"
                 className="flex gap-2 items-center"
               >
-                <i class="ri-instagram-line"></i>
+                <i class="ri-instagram-line text-lg"></i>
                 <span>Follow on IG</span>
               </a>
               <a
@@ -397,7 +501,7 @@ const App = () => {
                 target="_blank"
                 className="flex gap-2 items-center"
               >
-                <i class="ri-youtube-line"></i>
+                <i class="ri-youtube-line text-lg"></i>
                 <span>Subscribe on YT</span>
               </a>
             </div>
@@ -405,7 +509,7 @@ const App = () => {
         </div>
 
         {/* Footer Trademark */}
-        <div className="w-full pt-6 border-t-2 border-amber-50">
+        <div className="w-full pt-6 border-t-2 border-white">
           <p className="text-xs text-center leading-relaxed">
             © 2025 The ₹100 Crore Game. All rights reserved.
           </p>
