@@ -91,14 +91,14 @@ const App = () => {
           }`}
         >
           <div
-            className={`w-6 h-[1px] transition-transform duration-200 ${
+            className={`w-6 h-[1.2px] transition-transform duration-200 ${
               navOpen
                 ? "rotate-[405deg] translate-y-1 bg-stone-800"
                 : "bg-amber-50"
             }`}
           ></div>
           <div
-            className={`w-6 h-[1px] transition-transform duration-200 ${
+            className={`w-6 h-[1.2px] transition-transform duration-200 ${
               navOpen
                 ? "-rotate-[405deg] -translate-y-1 bg-stone-800"
                 : "bg-amber-50"
