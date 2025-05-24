@@ -28,19 +28,6 @@ import Testimonial3 from "./assets/Testimonial3.png";
 const App = () => {
   const locomotiveScroll = new LocomotiveScroll();
 
-  const locomotiveRef = useRef(null);
-
-  useEffect(() => {
-    const scroll = new LocomotiveScroll({
-      el: locomotiveRef.current,
-      smooth: true,
-    });
-
-    return () => {
-      if (scroll) scroll.destroy();
-    };
-  }, []);
-
   const scrollToSection = useCallback((id) => {
     const section = document.querySelector(id);
     if (section) {
@@ -68,15 +55,12 @@ const App = () => {
   });
 
   return (
-    <main
-      ref={locomotiveRef}
-      className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]"
-    >
+    <main className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]">
       {/* Navbar Section */}
-      <nav className="w-full p-4 px-6 md:p-6 lg:p-8 xl:p-4 xl:px-12 flex items-center justify-between relative border-b-2 border-stone-800 z-50">
+      <nav className="w-full p-4 px-6 md:p-4 md:px-12 lg:px-20 flex items-center justify-between relative border-b-2 border-stone-800 z-40">
         {/* Brand Logo */}
         <h2
-          className={`text-xl font-semibold z-50 transition-colors duration-200 ${
+          className={`text-xl lg:text-2xl font-semibold z-50 transition-colors duration-200 ${
             navOpen ? "text-amber-50" : "text-stone-800"
           }`}
         >
@@ -86,7 +70,7 @@ const App = () => {
         {/* Nav Menu */}
         <div
           onClick={() => setNavOpen(!navOpen)}
-          className={`p-4 px-2.5 rounded-full flex flex-col gap-2 z-50 transition-colors duration-200 ${
+          className={`p-4 px-2.5 lg:p-6 lg:px-4 rounded-full flex flex-col gap-2 z-50 transition-colors duration-200 ${
             navOpen ? "bg-amber-50" : "bg-stone-800"
           }`}
         >
@@ -108,7 +92,7 @@ const App = () => {
 
         {/* Nav Links */}
         <div
-          className={`w-full h-screen text-lg fixed inset-0 flex flex-col gap-4 items-center justify-center text-amber-50 bg-stone-800 transition-transform duration-200 ${
+          className={`w-full h-screen text-lg lg:text-2xl fixed inset-0 flex flex-col gap-4 items-center justify-center text-amber-50 bg-stone-800 transition-transform duration-200 ${
             navOpen ? "translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -174,22 +158,25 @@ const App = () => {
       {/* Hero Section */}
       <section
         id="Hero"
-        className="w-full pt-14 p-6 flex flex-col gap-6 items-center"
+        className="w-full pt-14 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-center"
       >
-        <h2 className="text-lg text-center leading-relaxed">
+        <h2 className="text-lg lg:text-2xl text-center leading-loose">
           The ₹100 Crore Game. <br /> A real—life financial challenge.
         </h2>
-        <p className="text-sm text-center leading-relaxed text-stone-600">
+        <p className="md:px-12 lg:px-20 text-sm lg:text-lg text-center leading-loose text-stone-600">
           This ain't Netflix. It's your shortcut to financial freedom—play
           smart, earn fast, and win big.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
+        <button
+          onClick={() => scrollToSection("#Subscription")}
+          className="p-4 px-6 text-xs lg:text-base rounded-xl text-amber-50 bg-stone-800"
+        >
           Enter the Game
         </button>
       </section>
 
       {/* Trailer Section */}
-      <section className="w-full pt-12 p-6 flex items-center">
+      <section className="w-full pt-12 p-6 md:px-12 lg:px-20 flex items-center justify-center">
         <div className="relative w-full">
           <video
             src=""
@@ -212,10 +199,10 @@ const App = () => {
       {/* About Section */}
       <section
         id="About"
-        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+        className="w-full pt-12 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-start"
       >
-        <h2 className="text-xl capitalize">About The Game</h2>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <h2 className="text-xl lg:text-2xl capitalize">About The Game</h2>
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           The ₹100 Crore Game is not a course, it's a real-life challenge.
           <br />
           <br />
@@ -226,7 +213,10 @@ const App = () => {
           <br />
           Join thousands leveling up their income, one move at a time.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
+        <button
+          onClick={() => scrollToSection("#Subscription")}
+          className="p-4 px-6 text-xs lg:text-base rounded-xl text-amber-50 bg-stone-800"
+        >
           Join the Game
         </button>
       </section>
@@ -234,10 +224,10 @@ const App = () => {
       {/* Mechanism Section */}
       <section
         id="Mechanism"
-        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+        className="w-full pt-12 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-start"
       >
-        <h2 className="text-xl capitalize">How It Works?</h2>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <h2 className="text-xl lg:text-2xl capitalize">How It Works?</h2>
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           I'm on a 7-year mission to make ₹100 crore from scratch. No money, no
           safety net—just skills, hustle, and the internet.
           <br />
@@ -255,7 +245,7 @@ const App = () => {
             />
           </div>
           <div className="w-[95%] flex flex-col gap-6">
-            <p className="text-sm leading-relaxed text-stone-600">
+            <p className="text-sm lg:text-lg leading-loose text-stone-600">
               🚀 I document every move—what I build, sell, fail, and win.
               <br />
               <br />
@@ -278,14 +268,17 @@ const App = () => {
             </p>
           </div>
         </div>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           This is not a course. It's a money-making experience.
           <br />
           <br />
           I'm playing to reach ₹100 Cr. You're playing to reach your own next
           level.
         </p>
-        <button className="p-4 px-6 text-xs rounded-xl text-amber-50 bg-stone-800">
+        <button
+          onClick={() => scrollToSection("#Subscription")}
+          className="p-4 px-6 text-xs lg:text-base rounded-xl text-amber-50 bg-stone-800"
+        >
           Let's Go—PLAYYY!
         </button>
       </section>
@@ -293,34 +286,36 @@ const App = () => {
       {/* Subscription Section */}
       <section
         id="Subscription"
-        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+        className="w-full pt-12 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-start"
       >
-        <h2 className="text-xl capitalize">Pick Your Path</h2>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <h2 className="text-xl lg:text-2xl capitalize">Pick Your Path</h2>
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           You can watch for free — but winners play differently.
           <br />
           <br />
           If you want faster growth, real community, and proven strategies,
           level up with these options:
         </p>
-        <div className="w-full h-full flex flex-col gap-6">
+        <div className="w-full h-full flex flex-col gap-6 lg:gap-8">
           {gameSubscriptions.map((subscription) => (
             <div
               key={subscription.id}
-              className="w-full p-6 flex flex-col gap-6 rounded-xl border-2 border-r-4 border-b-4 border-stone-600 text-stone-600"
+              className="w-full p-6 lg:p-8 flex flex-col gap-6 rounded-xl border-2 border-r-4 border-b-4 border-stone-600 text-stone-600"
             >
-              <h2 className="text-lg underline">{subscription.name}</h2>
+              <h2 className="text-lg lg:text-xl underline">
+                {subscription.name}
+              </h2>
               <div className="flex flex-col gap-4">
                 {subscription.benefits.map((benefit) => (
-                  <div className="w-full text-sm leading-relaxed flex gap-2">
-                    <p className="pt-0.5">
-                      <Check size={18} />
+                  <div className="w-full text-sm lg:text-base leading-loose flex gap-2">
+                    <p className="pt-0.5 lg:p-0">
+                      <Check size={18} className="lg:size-6" />
                     </p>
                     <p>{benefit}</p>
                   </div>
                 ))}
               </div>
-              <button className="p-4 px-6 text-xs rounded-xl border-2 border-r-4 border-b-4 border-stone-600">
+              <button className="p-4 px-6 text-xs lg:text-sm rounded-xl border-2 border-r-4 border-b-4 border-stone-600">
                 {subscription.price}
               </button>
             </div>
@@ -331,52 +326,70 @@ const App = () => {
       {/* Testimonials Section */}
       <section
         id="Testimonials"
-        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+        className="w-full pt-12 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-start"
       >
-        <h2 className="text-xl leading-relaxed capitalize">
-          Receipts Don't Lie
-        </h2>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <h2 className="text-xl lg:text-2xl capitalize">Receipts Don't Lie</h2>
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           Join thousands of players who turned ideas into income.
           <br />
           <br />
           Your story could be next.
         </p>
-        <div className="w-full h-full flex flex-col gap-6">
-          <img src={Testimonial1} alt="" className="rounded-xl" />
-          <img src={Testimonial2} alt="" className="rounded-xl" />
-          <img src={Testimonial3} alt="" className="rounded-xl" />
+        <div className="w-full rounded-xl overflow-x-auto">
+          <div
+            className="flex gap-6 lg:gap-8"
+            style={{ minWidth: "max-content" }}
+          >
+            <img
+              src={Testimonial1}
+              alt=""
+              className="w-[300px] rounded-xl flex-shrink-0"
+            />
+            <img
+              src={Testimonial2}
+              alt=""
+              className="w-[300px] rounded-xl flex-shrink-0"
+            />
+            <img
+              src={Testimonial3}
+              alt=""
+              className="w-[300px] rounded-xl flex-shrink-0"
+            />
+            {/* Add more images if needed */}
+          </div>
         </div>
       </section>
 
       {/* FAQs Section */}
       <section
         id="FAQs"
-        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+        className="w-full pt-12 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-start"
       >
-        <h2 className="text-xl leading-relaxed capitalize">Still Thinking?</h2>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <h2 className="text-xl lg:text-2xl capitalize">Still Thinking?</h2>
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           Got questions? Good. That means you're serious.
           <br />
           <br />
           No confusion. Just clear moves.
         </p>
-        <div className="w-full h-full flex flex-col gap-6">
+        <div className="w-full h-full flex flex-col gap-6 lg:gap-8">
           {gameFAQs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={index}
                 onClick={() => toggleFAQ(index)}
-                className="w-full p-6 rounded-xl border-2 border-r-4 border-b-4 border-stone-600 text-stone-600"
+                className="w-full p-6 lg:p-8 rounded-xl border-2 border-r-4 border-b-4 border-stone-600 text-stone-600"
               >
                 <div className="flex gap-6 justify-between items-center">
-                  <p className="text-sm leading-relaxed">{faq.question}</p>
+                  <p className="text-sm lg:text-lg leading-loose">
+                    {faq.question}
+                  </p>
                   <motion.div
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Plus size={20} />
+                    <Plus size={20} className="lg:size-8" />
                   </motion.div>
                 </div>
 
@@ -390,7 +403,7 @@ const App = () => {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-6 text-xs leading-relaxed">
+                      <p className="pt-6 text-xs lg:text-base leading-loose text-stone-500">
                         {faq.answer}
                       </p>
                     </motion.div>
@@ -405,10 +418,12 @@ const App = () => {
       {/* Contact Section */}
       <section
         id="Contact"
-        className="w-full pt-12 p-6 flex flex-col gap-6 items-start"
+        className="w-full pt-12 p-6 md:px-12 lg:px-20 flex flex-col gap-6 lg:gap-8 items-start"
       >
-        <h2 className="text-xl capitalize">Questions? Hit Us Up!</h2>
-        <p className="text-sm leading-relaxed text-stone-600">
+        <h2 className="text-xl lg:text-2xl capitalize">
+          Questions? Hit Us Up!
+        </h2>
+        <p className="text-sm lg:text-lg leading-loose text-stone-600">
           We're just one message away from helping you start your game.
           <br />
           <br />
@@ -448,18 +463,18 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="w-full mt-12 pt-12 p-6 flex gap-6 flex-col text-amber-50 bg-stone-800">
+      <footer className="w-full mt-12 pt-12 p-6 md:px-12 lg:px-20 flex gap-6 md:gap-8 flex-col text-amber-50 bg-stone-800">
         {/* Brand Logo */}
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-semibold">100Cr.</h2>
-          <p className="text-sm leading-relaxed">
+          <p className="text-sm leading-loose">
             Built with big dreams & bigger hustle.
           </p>
         </div>
 
         {/* Footer Links */}
         <div className="w-full flex flex-wrap">
-          <div className="w-1/2 flex flex-col gap-4">
+          <div className="w-1/2 flex flex-col gap-4 md:gap-6">
             <h2 className="text-lg underline">Quick Links</h2>
             <div className="w-full text-sm flex flex-col gap-2">
               <span onClick={() => scrollToSection("#Hero")}>Home</span>
@@ -477,7 +492,7 @@ const App = () => {
               <span onClick={() => scrollToSection("#Contact")}>Contact</span>
             </div>
           </div>
-          <div className="w-1/2 flex flex-col gap-4">
+          <div className="w-1/2 flex flex-col gap-4 md:gap-6">
             <h2 className="text-lg underline">Social Links</h2>
             <div className="w-full text-sm flex flex-col gap-2">
               <a
@@ -510,7 +525,7 @@ const App = () => {
 
         {/* Footer Trademark */}
         <div className="w-full pt-6 border-t-2 border-amber-50">
-          <p className="text-xs text-center leading-relaxed">
+          <p className="text-xs text-center leading-loose">
             © 2025 The ₹100 Crore Game. All rights reserved.
           </p>
         </div>
