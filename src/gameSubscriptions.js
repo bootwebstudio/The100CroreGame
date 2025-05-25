@@ -1,61 +1,60 @@
 const gameSubscriptions = [
-    {
-      id: 1,
-      name: "The Explorer",
-      price: "₹0/lifetime",
-      benefits: [
-        "Access to videos on Instagram and YouTube",
-        "Participate in polls to influence decisions",
-        "Exclusive behind-the-scenes content",
-        "Basic step-by-step strategies to make money",
-        "Join free community and challenges",
-        "Early access to new challenges & events",
-        "Exclusive announcements and updates",
-      ],
-    },
-    {
-      id: 2,
-      name: "The Side Quest",
-      price: "₹199/lifetime",
-      benefits: [
-        "Access to private community group",
-        "Weekly live strategy sessions & Q&A",
-        "Exclusive action-based challenges for faster growth",
-        "Step-by-step guides & blueprints to make money",
-        "Progress tracking through leaderboard",
-        "Networking with action-takers",
-        "Priority response to queries",
-      ],
-    },
-    {
-      id: 3,
-      name: "The Inner Circle",
-      price: "₹4999/lifetime",
-      benefits: [
-        "Private meetings & mastermind calls",
-        "Advanced business growth strategies",
-        "Access to real business case studies & breakdowns",
-        "High-income skills training for business",
-        "Access to advanced tools & systems",
-        "Personalized roadmap for financial growth",
-        "Direct feedback on your business strategies",
-      ],
-    },
-    {
-      id: 4,
-      name: "Partnership",
-      price: "₹24999/lifetime",
-      benefits: [
-        "1-on-1 mentorship and collaboration chances",
-        "Complete access to my systems & workflows",
-        "Lifetime access to exclusive business opportunities",
-        "Exclusive investment or partnership opportunities",
-        "Detailed business scaling strategies",
-        "Personal brand-building & business acceleration",
-        "Priority access to all premium content & events",
-      ],
-    },
-  ];
-  
-  export default gameSubscriptions;
-  
+  {
+    id: 1,
+    name: "The Explorer",
+    price: "₹0/lifetime",
+    benefits: [
+      "Binge real content on YouTube & Insta for free ",
+      "Vote in community polls and shape the journey ",
+      "Go behind the scenes with raw exclusive drops ",
+      "Follow simple money steps that actually work  ",
+      "Join free challenges with the dreamer tribe   ",
+      "Unlock early entry to every new mission drop ",
+      "Stay updated with hot drops before the world  ",
+    ],
+  },
+  {
+    id: 2,
+    name: "The Side Quest",
+    price: "₹199/lifetime",
+    benefits: [
+      "Join our secret squad in a private community  ",
+      "Weekly live calls to grow and ask anything    ",
+      "Real challenges that push you to level up     ",
+      "Follow step-by-step guides to make real cash  ",
+      "Track your progress on the public leaderboard ",
+      "Meet other grinders chasing the same goal     ",
+      "Get fast replies — no ghosting, no waiting    ",
+    ],
+  },
+  {
+    id: 3,
+    name: "The Inner Circle",
+    price: "₹4999/lifetime",
+    benefits: [
+      "Exclusive mastermind calls for smart players  ",
+      "Learn rare strategies to grow your business   ",
+      "Watch real business case studies, no fluff    ",
+      "Train in high-income skills that print money  ",
+      "Use my exact tools, templates, and systems    ",
+      "Your custom roadmap to grow and win big   ",
+      "Get my personal take on your growth strategy  ",
+    ],
+  },
+  {
+    id: 4,
+    name: "Partnership",
+    price: "₹24999/lifetime",
+    benefits: [
+      "1-on-1 mentorship to scale with full support  ",
+      "Unlock full access to my money-making system  ",
+      "Lifetime entry to rare wealth opportunities   ",
+      "Get first rights to collabs, drops, and deals ",
+      "Master secret tactics for big biz scaling     ",
+      "Build your brand and boost your influence     ",
+      "Top-tier access to all future content & calls ",
+    ],
+  },
+];
+
+export default gameSubscriptions;

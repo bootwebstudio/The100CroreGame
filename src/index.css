@@ -8,3 +8,24 @@
     src: url("/fonts/Boldonse.woff2") format("woff2");
   }
 }
+
+/* Pagination styles */
+.subscription-pagination {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  position: absolute;
+}
+
+.subscription-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #d6d3d1;
+  opacity: 1;
+  margin: 0 4px;
+}
+
+.subscription-pagination .swiper-pagination-bullet-active {
+  background: #57534e;
+}
