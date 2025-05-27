@@ -9,6 +9,7 @@ import { useSpring } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import LocomotiveScroll from "locomotive-scroll";
 import { Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "remixicon/fonts/remixicon.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -346,7 +347,7 @@ const App = () => {
       {/* Subscription Section */}
       <section
         id="Subscription"
-        className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex flex-col gap-6 lg:gap-8 items-start relative" // Added relative here
+        className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex flex-col gap-6 lg:gap-8 items-start relative"
       >
         <h2 className="text-xl lg:text-2xl xl:text-3xl capitalize">
           Pick Your Path
@@ -363,9 +364,14 @@ const App = () => {
           <Swiper
             slidesPerView={1}
             spaceBetween={20}
+            loop={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             pagination={{
               clickable: true,
-              el: ".subscription-pagination",
+              el: ".subscriptions-pagination",
             }}
             breakpoints={{
               640: {
@@ -385,7 +391,7 @@ const App = () => {
                 spaceBetween: 32,
               },
             }}
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
           >
             {gameSubscriptions.map((subscription) => (
               <SwiperSlide key={subscription.id}>
@@ -417,14 +423,14 @@ const App = () => {
           </Swiper>
 
           {/* Pagination */}
-          <div className="subscription-pagination absolute bottom-0 left-0 right-0 flex justify-center gap-0.5"></div>
+          <div className="subscriptions-pagination flex justify-center gap-0.5"></div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section
         id="Testimonials"
-        className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex flex-col gap-6 lg:gap-8 items-start"
+        className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex flex-col gap-6 lg:gap-8 items-start relative"
       >
         <h2 className="text-xl lg:text-2xl xl:text-3xl capitalize">
           Receipts Don't Lie
@@ -435,28 +441,65 @@ const App = () => {
           <br />
           Your story could be next.
         </p>
-        <div className="w-full rounded-xl overflow-x-auto">
-          <div
-            className="flex gap-6 lg:gap-8"
-            style={{ minWidth: "max-content" }}
+
+        <div className="w-full pb-6">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              el: ".testimonials-pagination",
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1.5,
+                spaceBetween: 24,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 2,
+                spaceBetween: 32,
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 32,
+              },
+            }}
+            modules={[Pagination, Autoplay]}
           >
-            <img
-              src={Testimonial1}
-              alt=""
-              className="w-[300px] rounded-xl flex-shrink-0"
-            />
-            <img
-              src={Testimonial2}
-              alt=""
-              className="w-[300px] rounded-xl flex-shrink-0"
-            />
-            <img
-              src={Testimonial3}
-              alt=""
-              className="w-[300px] rounded-xl flex-shrink-0"
-            />
-            {/* Add more images if needed */}
-          </div>
+            <SwiperSlide>
+              <img
+                src={Testimonial1}
+                alt="Testimonial 1"
+                className="rounded-xl"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={Testimonial2}
+                alt="Testimonial 2"
+                className="rounded-xl"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src={Testimonial3}
+                alt="Testimonial 3"
+                className="rounded-xl"
+              />
+            </SwiperSlide>
+          </Swiper>
+
+          {/* Pagination */}
+          <div className="testimonials-pagination flex justify-center gap-0.5"></div>
         </div>
       </section>
 

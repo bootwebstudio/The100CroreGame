@@ -9,8 +9,8 @@
   }
 }
 
-/* Pagination styles */
-.subscription-pagination {
+/* Subscriptions Pagination */
+.subscriptions-pagination {
   bottom: 0;
   left: 0;
   right: 0;
@@ -18,14 +18,35 @@
   position: absolute;
 }
 
-.subscription-pagination .swiper-pagination-bullet {
+.subscriptions-pagination .swiper-pagination-bullet {
+  opacity: 1;
   width: 10px;
   height: 10px;
-  background: #d6d3d1;
-  opacity: 1;
   margin: 0 4px;
+  background: #d6d3d1;
 }
 
-.subscription-pagination .swiper-pagination-bullet-active {
+.subscriptions-pagination .swiper-pagination-bullet-active {
+  background: #57534e;
+}
+
+/* Testimonials Pagination */
+.testimonials-pagination {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  position: absolute;
+}
+
+.testimonials-pagination .swiper-pagination-bullet {
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  background: #d6d3d1;
+}
+
+.testimonials-pagination .swiper-pagination-bullet-active {
   background: #57534e;
 }
