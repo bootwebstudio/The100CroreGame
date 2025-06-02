@@ -74,6 +74,7 @@ const App = () => {
         {/* Nav Links: XL */}
         <div className={`text-base hidden xl:flex gap-6`}>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#Hero");
             }}
@@ -81,6 +82,7 @@ const App = () => {
             Home
           </span>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#About");
             }}
@@ -88,6 +90,7 @@ const App = () => {
             About
           </span>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#Mechanism");
             }}
@@ -95,6 +98,7 @@ const App = () => {
             Mechanism
           </span>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#Subscription");
             }}
@@ -102,6 +106,7 @@ const App = () => {
             Subscription
           </span>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#Testimonials");
             }}
@@ -109,6 +114,7 @@ const App = () => {
             Testimonials
           </span>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#FAQs");
             }}
@@ -116,6 +122,7 @@ const App = () => {
             FAQs
           </span>
           <span
+            className="navigation-links relative after:absolute after:w-0 after:hover:w-full after:h-1 after:left-0 after:-bottom-1 after:bg-stone-800 after:transition-all after:duration-200"
             onClick={() => {
               scrollToSection("#Contact");
             }}
@@ -211,7 +218,6 @@ const App = () => {
           </span>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section
         id="Hero"
@@ -231,7 +237,6 @@ const App = () => {
           Enter the Game
         </button>
       </section>
-
       {/* Trailer Section */}
       <section className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex items-center justify-center">
         <div className="relative w-full">
@@ -252,7 +257,6 @@ const App = () => {
           </button>
         </div>
       </section>
-
       {/* About Section */}
       <section
         id="About"
@@ -279,7 +283,6 @@ const App = () => {
           Join the Game
         </button>
       </section>
-
       {/* Mechanism Section */}
       <section
         id="Mechanism"
@@ -343,7 +346,6 @@ const App = () => {
           Let's Go—PLAYYY!
         </button>
       </section>
-
       {/* Subscription Section */}
       <section
         id="Subscription"
@@ -368,6 +370,7 @@ const App = () => {
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             pagination={{
               clickable: true,
@@ -392,6 +395,8 @@ const App = () => {
               },
             }}
             modules={[Pagination, Autoplay]}
+            onTouchStart={(swiper) => swiper.autoplay.stop()}
+            onTouchEnd={(swiper) => swiper.autoplay.start()}
           >
             {gameSubscriptions.map((subscription) => (
               <SwiperSlide key={subscription.id}>
@@ -426,7 +431,6 @@ const App = () => {
           <div className="subscriptions-pagination flex justify-center gap-0.5"></div>
         </div>
       </section>
-
       {/* Testimonials Section */}
       <section
         id="Testimonials"
@@ -450,6 +454,7 @@ const App = () => {
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
             pagination={{
               clickable: true,
@@ -474,6 +479,7 @@ const App = () => {
               },
             }}
             modules={[Pagination, Autoplay]}
+            onTouchEnd={(swiper) => swiper.autoplay.start()}
           >
             <SwiperSlide>
               <img
@@ -502,7 +508,6 @@ const App = () => {
           <div className="testimonials-pagination flex justify-center gap-0.5"></div>
         </div>
       </section>
-
       {/* FAQs Section */}
       <section
         id="FAQs"
@@ -559,7 +564,6 @@ const App = () => {
           })}
         </div>
       </section>
-
       {/* Contact Section */}
       <section
         id="Contact"
@@ -606,7 +610,6 @@ const App = () => {
           </a>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="w-full mt-12 pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex gap-6 md:gap-8 flex-col text-amber-50 bg-stone-800">
         {/* Brand Logo */}
