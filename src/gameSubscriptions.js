@@ -16,7 +16,7 @@ const gameSubscriptions = [
   {
     id: 2,
     name: "The Side Quest",
-    price: "₹199/lifetime",
+    price: "₹199/month",
     benefits: [
       "Join our secret squad in a private community  ",
       "Weekly live calls to grow and ask anything    ",
@@ -30,7 +30,7 @@ const gameSubscriptions = [
   {
     id: 3,
     name: "The Inner Circle",
-    price: "₹4999/lifetime",
+    price: "₹499/month",
     benefits: [
       "Exclusive mastermind calls for smart players  ",
       "Learn rare strategies to grow your business   ",
@@ -39,20 +39,6 @@ const gameSubscriptions = [
       "Use my exact tools, templates, and systems    ",
       "Your custom roadmap to grow and win big   ",
       "Get my personal take on your growth strategy  ",
-    ],
-  },
-  {
-    id: 4,
-    name: "Partnership",
-    price: "₹24999/lifetime",
-    benefits: [
-      "1-on-1 mentorship to scale with full support  ",
-      "Unlock full access to my money-making system  ",
-      "Lifetime entry to rare wealth opportunities   ",
-      "Get first rights to collabs, drops, and deals ",
-      "Master secret tactics for big biz scaling     ",
-      "Build your brand and boost your influence     ",
-      "Top-tier access to all future content & calls ",
     ],
   },
 ];

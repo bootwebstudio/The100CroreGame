@@ -60,7 +60,7 @@ const App = () => {
 
   return (
     <main className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]">
-      {/* Navbar Section */}
+      {/* Navbar */}
       <nav className="w-full p-4 px-6 md:p-4 md:px-12 lg:px-20 xl:p-6 xl:px-24 flex items-center justify-between relative border-b-2 border-stone-800 z-40">
         {/* Brand Logo */}
         <h2
@@ -218,6 +218,7 @@ const App = () => {
           </span>
         </div>
       </nav>
+
       {/* Hero Section */}
       <section
         id="Hero"
@@ -237,6 +238,7 @@ const App = () => {
           Enter the Game
         </button>
       </section>
+
       {/* Trailer Section */}
       <section className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex items-center justify-center">
         <div className="relative w-full">
@@ -257,6 +259,7 @@ const App = () => {
           </button>
         </div>
       </section>
+
       {/* About Section */}
       <section
         id="About"
@@ -283,6 +286,7 @@ const App = () => {
           Join the Game
         </button>
       </section>
+
       {/* Mechanism Section */}
       <section
         id="Mechanism"
@@ -346,6 +350,7 @@ const App = () => {
           Let's Go—PLAYYY!
         </button>
       </section>
+
       {/* Subscription Section */}
       <section
         id="Subscription"
@@ -431,6 +436,7 @@ const App = () => {
           <div className="subscriptions-pagination flex justify-center gap-0.5"></div>
         </div>
       </section>
+
       {/* Testimonials Section */}
       <section
         id="Testimonials"
@@ -508,6 +514,7 @@ const App = () => {
           <div className="testimonials-pagination flex justify-center gap-0.5"></div>
         </div>
       </section>
+
       {/* FAQs Section */}
       <section
         id="FAQs"
@@ -564,6 +571,7 @@ const App = () => {
           })}
         </div>
       </section>
+
       {/* Contact Section */}
       <section
         id="Contact"
@@ -610,6 +618,7 @@ const App = () => {
           </a>
         </div>
       </section>
+
       {/* Footer */}
       <footer className="w-full mt-12 pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex gap-6 md:gap-8 flex-col text-amber-50 bg-stone-800">
         {/* Brand Logo */}
@@ -648,7 +657,7 @@ const App = () => {
                 target="_blank"
                 className="flex gap-2 items-center"
               >
-                <i class="ri-mail-line text-lg xl:text-xl"></i>
+                <i className="ri-mail-line text-lg xl:text-xl"></i>
                 <span>Send an Email</span>
               </a>
               <a
@@ -656,7 +665,7 @@ const App = () => {
                 target="_blank"
                 className="flex gap-2 items-center"
               >
-                <i class="ri-instagram-line text-lg xl:text-xl"></i>
+                <i className="ri-instagram-line text-lg xl:text-xl"></i>
                 <span>Follow on IG</span>
               </a>
               <a
@@ -664,7 +673,7 @@ const App = () => {
                 target="_blank"
                 className="flex gap-2 items-center"
               >
-                <i class="ri-youtube-line text-lg xl:text-xl"></i>
+                <i className="ri-youtube-line text-lg xl:text-xl"></i>
                 <span>Subscribe on YT</span>
               </a>
             </div>
