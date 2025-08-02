@@ -24,7 +24,8 @@ import { Plus } from "lucide-react";
 import { Check } from "lucide-react";
 
 // Assets
-import Trailer from "./assets/Trailer.png";
+import TrailerImage from "./assets/Trailer.png";
+import TrailerVideo from "./assets/Trailer.mp4";
 import Testimonial1 from "./assets/Testimonial1.png";
 import Testimonial2 from "./assets/Testimonial2.png";
 import Testimonial3 from "./assets/Testimonial3.png";
@@ -57,6 +58,29 @@ const App = () => {
     damping: 40,
     restDelta: 0.002,
   });
+
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = (e) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
 
   return (
     <main className="w-full h-full text-stone-800 bg-amber-50 font-[Boldonse]">
@@ -240,25 +264,26 @@ const App = () => {
       </section>
 
       {/* Trailer Section */}
-      <section className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex items-center justify-center">
-        <div className="relative w-full">
-          <video
-            src=""
-            poster={Trailer}
-            className="w-full h-fit rounded-xl object-cover bg-stone-400"
-          ></video>
+       <section className="w-full pt-12 xl:pt-16 p-6 md:px-12 lg:px-20 xl:px-48 flex items-center justify-center">
+      <div className="relative w-full">
+        <video
+          ref={videoRef}
+          src={TrailerVideo}
+          poster={TrailerImage}
+          className="w-full h-fit rounded-xl object-cover bg-stone-400"
+          onClick={handleVideoClick}
+        />
 
+        {!isPlaying && (
           <button
             className="absolute inset-0 flex items-center justify-center"
-            onClick={() => {
-              const video = document.querySelector("video");
-              video?.play();
-            }}
+            onClick={handlePlay}
           >
             <Play className="w-14 h-14 xl:w-16 xl:h-16 text-white bg-black bg-opacity-50 rounded-full p-4 hover:bg-opacity-75 transition" />
           </button>
-        </div>
-      </section>
+        )}
+      </div>
+    </section>
 
       {/* About Section */}
       <section
